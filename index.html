@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <a class="navbar-brand" href="#">Navbar</a>
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="form">
+                <div class="row">
+                    <div class="col-md-4 mt-4 mb-3">
+                        <label for="inputNoEmpleado" class="form-label">Numero de empleado</label>
+                        <input type="text" id="inputNoEmpleado" class="form-control">
+                    </div>
+                    <div class="col-md-8 mt-4 mb-3">
+                        <label for="inputNombre" class="form-label">Nombre</label>
+                        <input type="text" id="inputNombre" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputPuesto" class="form-label">Puesto laboral</label>
+                        <input type="text" id="inputPuesto" class="form-control">
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4 mb-3">
+                        <label for="infoCheck" class="form-label mb-3">Estatus</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="inputEstatus" id="inputActivo" checked>
+                            <label class="form-check-label" for="inputActivo">
+                              Activo
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="inputEstatus" id="inputInactivo">
+                            <label class="form-check-label" for="inputInactivo">
+                              Inactivo
+                            </label>
+                          </div>
+                    </div>
+                    <div class="col-md-12 mb-4">
+                        <label for="inputDescripcion" class="form-label">Descripción</label>
+                        <textarea class="form-control" name="descripcion" id="inputDescripcion" cols="10" rows="3" style="resize: none;"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="button" id="btnGuardar">Guardar</button>
+                          </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-danger" type="button" id="btnEliminarTodo">Eliminar</button>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mt-5">
+                    <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Puesto</th>
+                            <th scope="col">Estatus</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Acciones</th>
+                            <th scope="col"></th>
+
+                          </tr>
+                        </thead>
+                        <tbody id="tablaRegistros">
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
