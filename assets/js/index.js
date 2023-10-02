@@ -42,7 +42,8 @@ function guardarEmpleado(){
     if (indexEditar == null){
         empleados.push(empleado);
     }else {
-
+        empleados[indexEditar] = empleado;
+        indexEditar = null;
     }
     localStorage.setItem("empleados", JSON.stringify(empleados));
     mostrarDatos();
@@ -52,6 +53,17 @@ function borrarTodo() {
     localStorage.clear();
     empleados = [];
     mostrarDatos();
+}
+
+function editarEmpleado(index){
+    let empleadoAEditar = empleados[index];
+
+    inputNoEmpleado.value = empleadoAEditar.noEmpleado;
+    inputNombre.value = empleadoAEditar.nombre;
+    inputPuesto.value = empleadoAEditar.puesto;
+    inputEstatus.value = empleadoAEditar.estatus;
+    inputDescripcion.value = empleadoAEditar.descripcion;
+    indexEditar = index;
 }
 
 function mostrarDatos() {
@@ -77,7 +89,6 @@ function mostrarDatos() {
             `
         });
     }
-    console.log("muestra")
 }
 
 
