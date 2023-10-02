@@ -102,8 +102,8 @@ function mostrarDatos() {
             <td>${empleado.puesto}</td>
             <td>${empleado.estatus}</td>
             <td>${empleado.descripcion}</td>
-            <td><button type="button" class="btn btn-success" id="editar-${index}" onclick="editarEmpleado(${index})">Editar</button></td>
-            <td><button type="button" class="btn btn-danger" id="eliminar-${index}" onclick="eliminarEmpleado(${index})">Eliminar</button></td>
+            <td><button type="button" class="btn btn-outline-success" id="editar-${index}" onclick="editarEmpleado(${index})">Editar</button></td>
+            <td><button type="button" class="btn btn-outline-danger" id="eliminar-${index}" onclick="eliminarEmpleado(${index})">Eliminar</button></td>
           </tr>
             `
         });

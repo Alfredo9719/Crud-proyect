@@ -13,17 +13,17 @@
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <a class="navbar-brand" href="#">Navbar</a>
+              <a class="navbar-brand" href="#"><img src="assets/images/logo.png" alt="logo" width="25px"></a>
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">About</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" aria-disabled="true">Contact</a>
                   </li>
                 </ul>
                 <form class="d-flex" role="search">
@@ -37,8 +37,13 @@
 
     <main>
         <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12 mt-3">
+                    <h2>Registro de Empleados</h2>
+                </div>
+            </div>
             <div class="form">
-                <div class="row">
+                <div class="row text-center">
                     <div class="col-md-4 mt-4 mb-3">
                         <label for="inputNoEmpleado" class="form-label">Numero de empleado</label>
                         <input type="text" id="inputNoEmpleado" class="form-control">
@@ -58,7 +63,7 @@
                          
                     </div>
                     <div class="col-md-12 mb-4">
-                        <label for="inputDescripcion" class="form-label">Descripción</label>
+                        <label for="inputDescripcion" class="form-label">Descripción del puesto</label>
                         <textarea class="form-control" name="descripcion" id="inputDescripcion" cols="10" rows="3" style="resize: none;"></textarea>
                     </div>
                     <div class="col-md-6">
@@ -81,7 +86,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mt-5">
-                    <table class="table table-hover">
+                    <table class="table table-dark table-borderless table-hover">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
