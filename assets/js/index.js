@@ -45,6 +45,7 @@ function guardarEmpleado(){
         empleados[indexEditar] = empleado;
         indexEditar = null;
     }
+    limpiarFormularioEmpleado();
     localStorage.setItem("empleados", JSON.stringify(empleados));
     mostrarDatos();
 }
@@ -57,13 +58,31 @@ function borrarTodo() {
 
 function editarEmpleado(index){
     let empleadoAEditar = empleados[index];
+    recuperarDatos(empleadoAEditar);
 
+    indexEditar = index;
+}
+
+function recuperarDatos(empleadoAEditar){
     inputNoEmpleado.value = empleadoAEditar.noEmpleado;
     inputNombre.value = empleadoAEditar.nombre;
     inputPuesto.value = empleadoAEditar.puesto;
     inputEstatus.value = empleadoAEditar.estatus;
     inputDescripcion.value = empleadoAEditar.descripcion;
-    indexEditar = index;
+}
+
+function eliminarEmpleado(index) {
+    empleados.splice(index, 1);
+    localStorage.setItem("empleados", JSON.stringify(empleados));
+    mostrarDatos();
+}
+
+function limpiarFormularioEmpleado(){
+    inputNoEmpleado.value = "";
+    inputNombre.value = "";
+    inputPuesto.value = "";
+    inputEstatus.value = "";
+    inputDescripcion.value = "";
 }
 
 function mostrarDatos() {
