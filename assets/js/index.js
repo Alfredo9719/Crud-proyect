@@ -8,9 +8,10 @@ const inputEstatus = document.getElementById("inputEstatus");
 const inputDescripcion = document.getElementById("inputDescripcion");
 
 const btnGuardar = document.getElementById("btnGuardar");
-const btnEliminarTodo = document.getElementById("btnEliminarTodo");
+const btnBorrarTodo = document.getElementById("btnBorrarTodo");
 
 const tablaRegistros = document.getElementById("tablaRegistros");
+const divAlert = document.getElementById("divAlert");
 
 let indexEditar = null;
 
@@ -44,8 +45,44 @@ function guardarEmpleado(){
 
     }
     localStorage.setItem("empleados", JSON.stringify(empleados));
+    mostrarDatos();
+}
+
+function borrarTodo() {
+    localStorage.clear();
+    empleados = [];
+    mostrarDatos();
+}
+
+function mostrarDatos() {
+    if (empleados.length === 0){
+        tablaRegistros.innerHTML = `
+        <div class="alert alert-primary" role="alert" id="alertSinPeliculas">
+            Sin registros
+            </div>
+        `
+    }else {
+        tablaRegistros.innerHTML = "";
+        empleados.forEach((empleado, index) => {
+            tablaRegistros.innerHTML += `
+            <tr>
+            <th scope="row">${empleado.noEmpleado}</th>
+            <td>${empleado.nombre}</td>
+            <td>${empleado.puesto}</td>
+            <td>${empleado.estatus}</td>
+            <td>${empleado.descripcion}</td>
+            <td><button type="button" class="btn btn-success" id="editar-${index}" onclick="editarEmpleado(${index})">Editar</button></td>
+            <td><button type="button" class="btn btn-danger" id="eliminar-${index}" onclick="eliminarEmpleado(${index})">Eliminar</button></td>
+          </tr>
+            `
+        });
+    }
+    console.log("muestra")
 }
 
 
 
 btnGuardar.addEventListener("click", guardarEmpleado);
+btnBorrarTodo.addEventListener("click", borrarTodo);
+
+mostrarDatos();
