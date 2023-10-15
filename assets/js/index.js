@@ -41,9 +41,23 @@ function guardarEmpleado(){
 
     if (indexEditar == null){
         empleados.push(empleado);
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Guardado con exito',
+            showConfirmButton: false,
+            timer: 2500,
+          })
     }else {
         empleados[indexEditar] = empleado;
         indexEditar = null;
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Modificado con exito',
+            showConfirmButton: false,
+            timer: 2500,
+          })
     }
     limpiarFormularioEmpleado();
     localStorage.setItem("empleados", JSON.stringify(empleados));
@@ -53,7 +67,24 @@ function guardarEmpleado(){
 function borrarTodo() {
     localStorage.clear();
     empleados = [];
-    mostrarDatos();
+    Swal.fire({
+        title: '¿Estas seguro?',
+        text: "¡Estos son cambios irreversibles!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, Borrar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            '¡Borrado!',
+            'Archivos Eliminados',
+            'success',
+            mostrarDatos()
+          )
+        }
+      })
 }
 
 function editarEmpleado(index){
@@ -74,7 +105,24 @@ function recuperarDatos(empleadoAEditar){
 function eliminarEmpleado(index) {
     empleados.splice(index, 1);
     localStorage.setItem("empleados", JSON.stringify(empleados));
-    mostrarDatos();
+    Swal.fire({
+        title: '¿Estas seguro?',
+        text: "¡Estos son cambios irreversibles!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'SI, Borrar!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            '¡Borrado!',
+            'Empleado eliminado',
+            'success',
+            mostrarDatos()
+          )
+        }
+      })
 }
 
 function limpiarFormularioEmpleado(){
