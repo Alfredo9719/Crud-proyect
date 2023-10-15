@@ -10,7 +10,7 @@ const inputDescripcion = document.getElementById("inputDescripcion");
 const btnGuardar = document.getElementById("btnGuardar");
 const btnBorrarTodo = document.getElementById("btnBorrarTodo");
 
-const tablaRegistros = document.getElementById("tablaRegistros");
+const cardRegistros = document.getElementById("cardRegistros");
 const divAlert = document.getElementById("divAlert");
 
 let indexEditar = null;
@@ -87,24 +87,30 @@ function limpiarFormularioEmpleado(){
 
 function mostrarDatos() {
     if (empleados.length === 0){
-        tablaRegistros.innerHTML = `
+        cardRegistros.innerHTML = `
         <div class="alert alert-primary" role="alert" id="alertSinPeliculas">
             Sin registros
             </div>
         `
     }else {
-        tablaRegistros.innerHTML = "";
+        cardRegistros.innerHTML = "";
         empleados.forEach((empleado, index) => {
-            tablaRegistros.innerHTML += `
-            <tr>
-            <th scope="row">${empleado.noEmpleado}</th>
-            <td>${empleado.nombre}</td>
-            <td>${empleado.puesto}</td>
-            <td>${empleado.estatus}</td>
-            <td>${empleado.descripcion}</td>
-            <td><button type="button" class="btn btn-outline-success" id="editar-${index}" onclick="editarEmpleado(${index})">Editar</button></td>
-            <td><button type="button" class="btn btn-outline-danger" id="eliminar-${index}" onclick="eliminarEmpleado(${index})">Eliminar</button></td>
-          </tr>
+            cardRegistros.innerHTML += `
+            <div class="card text-center">
+            <div class="card-header">
+              ${empleado.noEmpleado}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">${empleado.nombre}</h5>
+              <h5 class="card-title">${empleado.puesto}</h5>
+              <p class="card-text">${empleado.descripcion}</p>
+              <button type="button" class="btn btn-outline-success" id="editar-${index}" onclick="editarEmpleado(${index})">Editar</button>
+              <button type="button" class="btn btn-outline-danger" id="eliminar-${index}" onclick="eliminarEmpleado(${index})">Eliminar</button>
+            </div>
+            <div class="card-footer text-body-secondary">
+              ${empleado.estatus}
+            </div>
+          </div>
             `
         });
     }
